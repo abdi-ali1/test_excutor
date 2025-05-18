@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.12.0 on win32)" generated="2025-05-18T00:34:44.460291" rpa="false" schemaversion="5">
+<suite id="s1" name="Contract Creation" source="C:\School\semaster7\Development\testflow\test_executor\venv\test_executor\generated_tests\Contract_Creation.robot">
+<test id="s1-t1" name="Contract Creation" line="6">
+<kw name="Load XML File" owner="keywords">
+<kw name="Get File From Library">
+<msg time="2025-05-18T00:34:44.474910" level="FAIL">No keyword with name 'Get File From Library' found.</msg>
+<var>${xml_data}</var>
+<arg>${file_path}</arg>
+<status status="FAIL" start="2025-05-18T00:34:44.474910" elapsed="0.000000">No keyword with name 'Get File From Library' found.</status>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<arg>${xml_data}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="NOT RUN" start="2025-05-18T00:34:44.474910" elapsed="0.000000"/>
+</kw>
+<arg>C:\\School\\semaster7\\Development\\testflow\\test_executor\\venv\\test_executor\\generated_tests/context/contract_creation.xml</arg>
+<status status="FAIL" start="2025-05-18T00:34:44.474910" elapsed="0.000000">No keyword with name 'Get File From Library' found.</status>
+</kw>
+<kw name="Send POST Request" owner="keywords">
+<arg>/api/contracts</arg>
+<arg>${xml_data}</arg>
+<status status="NOT RUN" start="2025-05-18T00:34:44.474910" elapsed="0.000000"/>
+</kw>
+<kw name="Validate Response Status" owner="keywords">
+<arg>201</arg>
+<status status="NOT RUN" start="2025-05-18T00:34:44.476414" elapsed="0.000000"/>
+</kw>
+<kw name="Validate XML Schema" owner="keywords">
+<arg>${response_body}</arg>
+<arg>schemas/contract_creation_schema.xsd</arg>
+<status status="NOT RUN" start="2025-05-18T00:34:44.476414" elapsed="0.000000"/>
+</kw>
+<tag>contract</tag>
+<tag>creation</tag>
+<status status="FAIL" start="2025-05-18T00:34:44.474910" elapsed="0.001504">No keyword with name 'Get File From Library' found.</status>
+</test>
+<doc>Test contract creation process.</doc>
+<status status="FAIL" start="2025-05-18T00:34:44.461292" elapsed="0.015122"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">contract</stat>
+<stat pass="0" fail="1" skip="0">creation</stat>
+</tag>
+<suite>
+<stat name="Contract Creation" id="s1" pass="0" fail="1" skip="0">Contract Creation</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-05-18T00:34:44.473873" level="ERROR">Error in file 'C:\School\semaster7\Development\testflow\test_executor\venv\test_executor\generated_tests\keywords.resource' on line 2: Importing library 'RequestsLibrary' failed: ModuleNotFoundError: No module named 'RequestsLibrary'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  C:\School\semaster7\Development\testflow\test_executor\venv\test_executor\app\libraries
+  C:\School\semaster7\Development\testflow\test_executor\venv\test_executor\app\resources
+  C:\School\semaster7\Development\testflow\test_executor\venv\Scripts\robot.exe
+  C:\Users\abdi1\AppData\Local\Programs\Python\Python312\python312.zip
+  C:\Users\abdi1\AppData\Local\Programs\Python\Python312\DLLs
+  C:\Users\abdi1\AppData\Local\Programs\Python\Python312\Lib
+  C:\Users\abdi1\AppData\Local\Programs\Python\Python312
+  C:\School\semaster7\Development\testflow\test_executor\venv
+  C:\School\semaster7\Development\testflow\test_executor\venv\Lib\site-packages</msg>
+<msg time="2025-05-18T00:34:44.473873" level="ERROR">Error in file 'C:\School\semaster7\Development\testflow\test_executor\venv\test_executor\generated_tests\keywords.resource' on line 3: Importing library 'libraries.custom_energy_keywords.custom_validations' failed: ModuleNotFoundError: No module named 'libraries'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  C:\School\semaster7\Development\testflow\test_executor\venv\test_executor\app\libraries
+  C:\School\semaster7\Development\testflow\test_executor\venv\test_executor\app\resources
+  C:\School\semaster7\Development\testflow\test_executor\venv\Scripts\robot.exe
+  C:\Users\abdi1\AppData\Local\Programs\Python\Python312\python312.zip
+  C:\Users\abdi1\AppData\Local\Programs\Python\Python312\DLLs
+  C:\Users\abdi1\AppData\Local\Programs\Python\Python312\Lib
+  C:\Users\abdi1\AppData\Local\Programs\Python\Python312
+  C:\School\semaster7\Development\testflow\test_executor\venv
+  C:\School\semaster7\Development\testflow\test_executor\venv\Lib\site-packages</msg>
+</errors>
+</robot>

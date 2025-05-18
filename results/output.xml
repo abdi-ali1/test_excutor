@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.12.0 on win32)" generated="2025-05-19T00:39:28.427505" rpa="false" schemaversion="5">
+<suite id="s1" name="Contract Creation" source="C:\School\semaster7\Development\testflow\test_executor\venv\test_executor\generated_tests\Contract_Creation.robot">
+<test id="s1-t1" name="Contract Creation" line="6">
+<kw name="Load XML File" owner="keywords">
+<kw name="Get File From Library" owner="custom_energy_keywords.custom_validations">
+<msg time="2025-05-19T00:39:28.873125" level="INFO">${xml_data} = &lt;Contract&gt;&lt;CustomerID&gt;12345&lt;/CustomerID&gt;&lt;Tariff&gt;Day&lt;/Tariff&gt;&lt;/Contract&gt;</msg>
+<var>${xml_data}</var>
+<arg>${file_path}</arg>
+<status status="PASS" start="2025-05-19T00:39:28.872267" elapsed="0.000858"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-05-19T00:39:28.873125" level="INFO">${xml_data} = &lt;Contract&gt;&lt;CustomerID&gt;12345&lt;/CustomerID&gt;&lt;Tariff&gt;Day&lt;/Tariff&gt;&lt;/Contract&gt;</msg>
+<arg>${xml_data}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-05-19T00:39:28.873125" elapsed="0.000000"/>
+</kw>
+<arg>C:\\School\\semaster7\\Development\\testflow\\test_executor\\venv\\test_executor\\generated_tests/context/contract_creation.xml</arg>
+<status status="PASS" start="2025-05-19T00:39:28.872267" elapsed="0.000858"/>
+</kw>
+<kw name="Send POST Request" owner="keywords">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-05-19T00:39:28.874129" level="INFO">Creating Session using : alias=api_session, url=http://192.168.1.159:8000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>api_session</arg>
+<arg>http://192.168.1.159:8000</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-05-19T00:39:28.874129" elapsed="0.000000"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-05-19T00:39:28.874129" level="INFO">&amp;{headers} = { Content-Type=application/xml }</msg>
+<var>&amp;{headers}</var>
+<arg>Content-Type=application/xml</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-05-19T00:39:28.874129" elapsed="0.000000"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-05-19T00:39:28.876129" level="INFO">POST Request : url=http://192.168.1.159:8000/api/contracts 
+ path_url=/api/contracts 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/xml', 'Content-Length': '71'} 
+ body=&lt;Contract&gt;&lt;CustomerID&gt;12345&lt;/CustomerID&gt;&lt;Tariff&gt;Day&lt;/Tariff&gt;&lt;/Contract&gt; 
+ </msg>
+<msg time="2025-05-19T00:39:28.876129" level="INFO">POST Response : url=http://192.168.1.159:8000/api/contracts 
+ status=201, reason=CREATED 
+ headers={'Server': 'Werkzeug/3.1.3 Python/3.12.0', 'Date': 'Sun, 18 May 2025 22:39:28 GMT', 'Content-Type': 'application/xml; charset=utf-8', 'Content-Length': '241', 'Connection': 'close'} 
+ body=
+        &lt;ContractCreationResponse&gt;
+            &lt;CustomerID&gt;12345&lt;/CustomerID&gt;
+            &lt;Tariff&gt;Day&lt;/Tariff&gt;
+            &lt;ContractID&gt;CONTRACT_12345&lt;/ContractID&gt;
+            &lt;Status&gt;Success&lt;/Status&gt;
+        &lt;/ContractCreationResponse&gt;
+     
+ </msg>
+<msg time="2025-05-19T00:39:28.877860" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<var>${response}</var>
+<arg>api_session</arg>
+<arg>${endpoint}</arg>
+<arg>data=${body}</arg>
+<arg>headers=&amp;{headers}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-05-19T00:39:28.874129" elapsed="0.003731"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-05-19T00:39:28.877860" level="INFO">${response_body} = 
+        &lt;ContractCreationResponse&gt;
+            &lt;CustomerID&gt;12345&lt;/CustomerID&gt;
+            &lt;Tariff&gt;Day&lt;/Tariff&gt;
+            &lt;ContractID&gt;CONTRACT_12345&lt;/ContractID&gt;
+            &lt;Status&gt;Success&lt;/Status&gt;...</msg>
+<arg>${response_body}</arg>
+<arg>${response.text}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-05-19T00:39:28.877860" elapsed="0.000000"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-05-19T00:39:28.878867" level="INFO">${response_status} = 201</msg>
+<arg>${response_status}</arg>
+<arg>${response.status_code}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-05-19T00:39:28.877860" elapsed="0.001007"/>
+</kw>
+<arg>/api/contracts</arg>
+<arg>${xml_data}</arg>
+<status status="PASS" start="2025-05-19T00:39:28.873125" elapsed="0.005742"/>
+</kw>
+<kw name="Validate Response Status" owner="keywords">
+<kw name="Validate Response Status From Library" owner="custom_energy_keywords.custom_validations">
+<arg>${expected_status}</arg>
+<status status="PASS" start="2025-05-19T00:39:28.878867" elapsed="0.001000"/>
+</kw>
+<arg>201</arg>
+<status status="PASS" start="2025-05-19T00:39:28.878867" elapsed="0.001000"/>
+</kw>
+<kw name="Validate XML Schema" owner="keywords">
+<kw name="Validate XML Schema From Library" owner="custom_energy_keywords.custom_validations">
+<arg>${xml_content}</arg>
+<arg>${schema_file}</arg>
+<status status="PASS" start="2025-05-19T00:39:28.879867" elapsed="0.083878"/>
+</kw>
+<arg>${response_body}</arg>
+<arg>schemas/contract_creation_schema.xsd</arg>
+<status status="PASS" start="2025-05-19T00:39:28.879867" elapsed="0.083878"/>
+</kw>
+<tag>contract</tag>
+<tag>creation</tag>
+<status status="PASS" start="2025-05-19T00:39:28.871267" elapsed="0.092478"/>
+</test>
+<status status="PASS" start="2025-05-19T00:39:28.428508" elapsed="0.535237"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">contract</stat>
+<stat pass="1" fail="0" skip="0">creation</stat>
+</tag>
+<suite>
+<stat name="Contract Creation" id="s1" pass="1" fail="0" skip="0">Contract Creation</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-05-19T00:39:28.871267" level="ERROR">Error in file 'C:\School\semaster7\Development\testflow\test_executor\venv\test_executor\resources\keywords.resource' on line 3: Importing library 'libraries.custom_energy_keywords.custom_validations' failed: ModuleNotFoundError: No module named 'libraries'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  C:\School\semaster7\Development\testflow\test_executor\venv\Scripts\robot.exe
+  C:\School\semaster7\Development\testflow\test_executor\venv\test_executor\libraries
+  C:\Users\abdi1\AppData\Local\Programs\Python\Python312\python312.zip
+  C:\Users\abdi1\AppData\Local\Programs\Python\Python312\DLLs
+  C:\Users\abdi1\AppData\Local\Programs\Python\Python312\Lib
+  C:\Users\abdi1\AppData\Local\Programs\Python\Python312
+  C:\School\semaster7\Development\testflow\test_executor\venv
+  C:\School\semaster7\Development\testflow\test_executor\venv\Lib\site-packages</msg>
+</errors>
+</robot>
